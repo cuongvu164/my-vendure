@@ -17,6 +17,7 @@ import { ReviewsPlugin } from './plugins/ProductReview/product-review.plugin';
 import { TopSellersPlugin } from './plugins/TopSeller/top-sellers.plugin';
 import { AvailabilityPlugin } from './plugins/ProductVariant/product-variant.plugin';
 import { OverRideProductPlugin } from './plugins/OverRideProduct/override-product..plugin';
+import { SortPlugin } from './plugins/OverrideSortParameter/sortPriceBetween.plugin';
 
 const IS_DEV = process.env.APP_ENV === 'dev';
 
@@ -112,6 +113,7 @@ export const config: VendureConfig = {
     }),
     DefaultJobQueuePlugin.init({ useDatabaseForBuffer: true }),
     DefaultSearchPlugin.init({ bufferUpdates: false, indexStockStatus: true }),
+    SortPlugin,
     EmailPlugin.init({
       devMode: true,
       outputPath: path.join(__dirname, '../static/email/test-emails'),
